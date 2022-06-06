@@ -2,7 +2,7 @@ const express = require("express");
 const fs = require("fs");
 const { v4: uuidv4 } = require('uuid');
 const { validate, ValidationError, Joi } = require('express-validation');
-const port=8080;
+const PORT=process.env.PORT || 8080;
 const pVal = {
     body: Joi.object({
         username: Joi.string().required(),
@@ -150,6 +150,6 @@ app.post("/db",(req,res)=>{
     })
 })
 
-app.listen(port,()=>{
-    console.log(`Server started at ${port}`)
+app.listen(PORT,()=>{
+    console.log(`Server started at ${PORT}`)
 })
